@@ -4,7 +4,7 @@ require 'open-uri'
 require 'json'
 require 'optparse'
 
-# Document about Crossref REST API is here => https://api.crossref.org/
+# Crossref REST API ---> https://api.crossref.org/
 # Help:  $ ruby simple_search_crossref.rb -h
 ## sample1  $ ruby simple_search_crossref.rb --query 'Communication design for electronic negotiations on the basis of XML schema'
 ## sample2  $ ruby simple_search_crossref.rb --doi 10.1145/371920.371924
@@ -70,14 +70,17 @@ def params_validation(params)
   
   if params['doi'].nil? == false
     doi = params['doi']
+
     if /^10\.\d+\/.*?$/ =~ doi
+      param['query'] = nil
     elsif /^.*?(10\.\d+\/.*?)$/ =~ doi
       params['doi'] = $1
       params['query'] = nil
     else
-      puts "Reset Invalid DOI name -> nil"
       params['doi'] = nil
+      puts "RESET Invalid DOI name -> nil"
     end
+    
   else
   end
 
@@ -86,7 +89,7 @@ def params_validation(params)
     if 0 < n && n <= 1000
       # OK
     else
-      puts "Reset -> n: 50 (default)"
+      puts "RESET -> n: 50 (default)"
       params['n'] = 50
     end
   end
