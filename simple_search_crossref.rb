@@ -96,8 +96,7 @@ def params_validation(params)
 end
 
 ######### MAIN ############
-# query = ARGV.join(' ')
-sort_mode = 'relevance' # score または relevance を指定する
+sort_mode = 'relevance' # 'score' or 'relevance'
 
 params = ARGV.getopts('', 'query:', 'doi:', 'n:50')
 params = params_validation(params)
