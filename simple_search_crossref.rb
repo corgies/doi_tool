@@ -70,6 +70,7 @@ def params_validation(params)
   
   if params['doi'].nil? == false
     doi = params['doi']
+    doi = CGI.unescape(doi)
 
     if /^10\.\d+\/.*?$/ =~ doi
       param['query'] = nil
@@ -99,7 +100,7 @@ def params_validation(params)
 end
 
 ######### MAIN ############
-sort_mode = 'relevance' # 'score' or 'relevance'
+sort_mode = 'relevance' # set value: either 'score' or 'relevance'
 
 params = ARGV.getopts('', 'query:', 'doi:', 'n:50')
 params = params_validation(params)
