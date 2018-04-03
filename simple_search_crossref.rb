@@ -73,7 +73,7 @@ def params_validation(params)
     doi = CGI.unescape(doi)
 
     if /^10\.\d+\/.*?$/ =~ doi
-      param['query'] = nil
+      params['query'] = nil
     elsif /^.*?(10\.\d+\/.*?)$/ =~ doi
       params['doi'] = $1
       params['query'] = nil
