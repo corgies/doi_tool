@@ -15,7 +15,7 @@ ARGV.each{|filepath|
   outpath = filepath.dup
   outpath.sub!('.gz', '')
   outpath.sub!('./', '')
-  outpath = ".\/add_timestamp\/#{outpath}"
+  outpath = ".\/add_detail\/#{outpath}"
 
   puts filepath
 
