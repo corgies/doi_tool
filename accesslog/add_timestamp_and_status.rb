@@ -15,7 +15,7 @@ ARGV.each{|filepath|
   outpath = filepath.dup
   outpath.sub!('.gz', '')
   outpath.sub!('./', '')
-  outpath = ".\/add_detail\/#{outpath}"
+  outpath = ".\/add_timestamp\/#{outpath}"
 
   puts filepath
 
@@ -45,8 +45,8 @@ ARGV.each{|filepath|
 
       request_code = hash['request_code']
       response_code = hash['response_code']
-      hash['request_code_result'] = code_hash[request_code]
-      hash['response_code_result'] = code_hash[response_code]
+      hash['request_result'] = code_hash[request_code]
+      hash['response_result'] = code_hash[response_code]
 
       File.open(outpath, 'a'){|outfile|
         puts hash.to_json
