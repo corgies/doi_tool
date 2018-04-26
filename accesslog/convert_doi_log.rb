@@ -39,7 +39,7 @@ Zlib::GzipReader.open(filepath){|file|
     when 'JaLC' then
       ra = 'JaLC'
     when 'JST' then
-      ra = 'Crossref'
+      ra = 'Crossref or DataCite'
     end
   else
     raise "Error::regexp:\t#{filepath}"
